@@ -15,9 +15,15 @@ class ArticleViewModel : BaseViewModel() {
 
     fun doAction() {
         launch({
-            val homeArticles =
-                RetrofitClient.apiService.getHomeArticles()
-            data.value = homeArticles
+            data.value = RetrofitClient.apiService.getHomeArticles()
+        }, {
+            Log.d("yue_qf", "Throwable: ${it.message}")
+        })
+    }
+
+    fun doMore() {
+        launch({
+            data.value = RetrofitClient.apiService.getMore()
         }, {
             Log.d("yue_qf", "Throwable: ${it.message}")
         })

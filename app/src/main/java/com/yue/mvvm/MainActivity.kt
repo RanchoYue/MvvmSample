@@ -17,8 +17,9 @@ class MainActivity : BaseActivity() {
     override fun getLayoutResId() = R.layout.activity_main
 
     override fun initView() {
-        btn_start.setOnClickListener { doAction() }
         tv_show.movementMethod = ScrollingMovementMethod.getInstance();
+        btn_start.setOnClickListener { viewModel.doAction() }
+        btn_more.setOnClickListener { viewModel.doMore() }
     }
 
     override fun initData() {
@@ -28,7 +29,4 @@ class MainActivity : BaseActivity() {
         })
     }
 
-    private fun doAction() {
-        viewModel.doAction()
-    }
 }

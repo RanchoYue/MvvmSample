@@ -9,4 +9,7 @@ interface ApiService {
     @GET("/")
     suspend fun getHomeArticles(): ResponseBody
 
+    @GET("/more/")
+    suspend fun getMore(): ResponseBody
+
 }
