@@ -7,7 +7,9 @@ import com.yue.mvvm.base.BaseActivity
 import com.yue.mvvm.viewmodel.ArticleViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
-
+/**
+ * @author yue
+ */
 class MainActivity : BaseActivity() {
 
     private lateinit var viewModel: ArticleViewModel
