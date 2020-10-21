@@ -7,7 +7,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-object BaseRetrofitClient {
+object RetrofitClient {
 
     private const val baseUrl = "https://www.baidu.com"
 
@@ -25,12 +25,9 @@ object BaseRetrofitClient {
             return builder.build()
         }
 
-    fun <T> getService(serviceClass: Class<T>): T {
-        return Retrofit.Builder()
-            .client(client)
-            .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl(baseUrl)
-            .build().create(serviceClass)
-    }
-
+    val apiService: ApiService = Retrofit.Builder()
+        .client(client)
+        .addConverterFactory(GsonConverterFactory.create())
+        .baseUrl(baseUrl)
+        .build().create(ApiService::class.java)
 }
